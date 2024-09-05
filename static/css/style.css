@@ -54,13 +54,78 @@
     z-index: 3; /* Ensure the face box is above everything else */
 }
 
-/* Style for instructions */
+/* Style for the original instructions inside the video container */
 .instructions {
     position: absolute;
     bottom: 10px;
     width: 100%;
     text-align: center;
-    color: #fff;
-    font-size: 1.2em;
+    color: #00ffff; /* Neon blue color for the text */
+    font-size: 1.5em; /* Increased font size */
     z-index: 3; /* Ensure the instructions are above the video and face box */
+}
+
+/* Wrapper for the new typing demo instructions */
+.wrapper {
+    position: fixed;
+    left: 20px; /* Positioning from the left side */
+    top: 50%;
+    transform: translateY(-50%); /* Center the wrapper vertically */
+    z-index: 4; /* Ensure instructions are above other elements */
+    color: #00ffff; /* Neon blue font */
+    font-size: 1.5em; /* Adjust font size as needed */
+    margin-right: 20px; /* Ensure there is space to the right of the wrapper */
+    padding-left: 10px; /* Add some padding to prevent overlap with the face box */
+}
+
+/* Instructions text */
+.instructions-text {
+    white-space: normal; /* Allow text to wrap normally */
+    line-height: 1.5; /* Improve readability */
+    font-family: sans-serif; /* Change font family as needed */
+}
+
+/* Typing demo effect with cursor */
+/* Typing demo effect with cursor */
+.instructions-text {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    font-family: monospace;
+    font-size: 30px;
+    color: #00ffff;
+    border-right: 3px solid #00ffff; /* Cursor effect */
+    animation: typing 6s steps(40) 1s forwards, blink-cursor 0.75s step-end infinite 6s; /* Typing for 6s, cursor blinks afterward */
+}
+
+/* Blinking cursor animation */
+@keyframes blink-cursor {
+    50% { border-color: transparent; }
+    100% { border-color: #00ffff; }
+}
+
+/* Breathing effect for blink-text */
+.blink-text {
+    font-size: 20px;
+
+    animation: none; /* No animation initially */
+}
+
+/* When the animate class is added, breathing starts */
+.blink-text.animate {
+    visibility: visible;
+    animation: breathe 3s ease-in-out infinite; /* Breathing effect */
+}
+
+/* Breathing effect keyframes */
+@keyframes breathe {
+    0% { opacity: 0.3; }
+    50% { opacity: 1; }
+    100% { opacity: 0.3; }
+}
+
+/* Typing animation */
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
 }

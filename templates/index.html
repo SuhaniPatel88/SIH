@@ -17,10 +17,27 @@
         <div class="video-container">
             <video id="video" autoplay></video>
             <div class="face-box"></div>
+            <!-- Original Instructions inside the video box -->
             <div class="instructions" id="instructions">Move your face to fit the oval area.</div>
         </div>
     </div>
 
+    <!-- New Typing Demo Instructions -->
+    <div class="wrapper">
+        <div class="instructions-text">
+            Instructions:<br>
+            
+            <div class="blink-text">
+            <ul style="list-style-type:square;">
+            <li>Blink your face near to the camera<br> 
+            and centerally align.<br></li>
+            <li> Do not rotate your face.<br></li>
+            <li>Do not spoof.</li>
+        </ul>
+        </div>
+        </div>
+        
+    </div>
     <script>
         // Access video stream and display it
         const video = document.getElementById('video');
@@ -42,5 +59,23 @@
             instructions.textContent = message;
         }
     </script>
+
+<script>
+    // Run the second animation after the first one completes
+    setTimeout(() => {
+        const blinkText = document.querySelector('.blink-text');
+        blinkText.classList.add('animate'); // Add the animate class to start blinking
+    }, 6500); // 6 seconds delay to match the typing animation duration
+</script>
+
+<script>// Run the second animation after the first one completes
+    setTimeout(() => {
+        const blinkText = document.querySelector('.blink-text');
+        blinkText.classList.add('animate'); // Add the animate class to start breathing effect
+    
+        // Remove the cursor effect after typing is complete
+        const instructionsText = document.querySelector('.instructions-text');
+        instructionsText.style.borderRight = 'none'; // Remove the cursor
+    }, 7000); // Delay to match the typing animation duration + small buffer</script>
 </body>
 </html>
